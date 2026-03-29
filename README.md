@@ -1,7 +1,3 @@
-下面是一个**符合 PyPI 发布规范的 README.md（可直接使用）**，结构、格式、badge、安装方式、示例、测试说明都已整理好，适合直接上传到 PyPI / GitHub。
-
----
-
 # Joke Center 🎭
 
 A simple and extensible Python library for managing and retrieving jokes by category.
@@ -23,7 +19,7 @@ A simple and extensible Python library for managing and retrieving jokes by cate
 Install via pip:
 
 ```bash
-pip install joke-center
+pip install joke-center-wszms384
 ```
 
 ---
@@ -103,6 +99,6 @@ Return statistics:
 ```json
 {
   "total_categories": 3,
-  "total_jokes": 10
+  "total_jokes": 6
 }
 ```
