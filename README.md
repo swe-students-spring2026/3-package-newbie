@@ -102,4 +102,5 @@ Return statistics:
   "total_categories": 3,
   "total_jokes": 6
 }
+
 ```
