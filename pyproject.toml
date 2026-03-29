@@ -4,14 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "joke-center-wszms384"
-version = "0.2.1"
+
+version = "0.3.2"
+
 description = "A fun Python package that provides jokes for developers"
 readme = "README.md"
 authors = [
     { name = "wszms384", email = "2548462107@qq.com " }
 ]
-license = { text = "MIT" }
-requires-python = ">=3.8"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.10"
 
 dependencies = []
 
@@ -19,7 +21,7 @@ keywords = ["jokes", "fun", "developer", "humor"]
 
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent"
 ]
 

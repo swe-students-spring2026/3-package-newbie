@@ -42,6 +42,7 @@ print(joke_center.get_random_joke())
 
 # List categories
 print(joke_center.list_categories())
+
 ```
 
 ---
