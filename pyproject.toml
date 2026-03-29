@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "joke-center-wszms384"
+version = "0.1.0"
+description = "A fun Python package that provides jokes for developers"
+readme = "README.md"
+authors = [
+    { name = "wszms384", email = "2548462107@qq.com " }
+]
+license = { text = "MIT" }
+requires-python = ">=3.8"
+
+dependencies = []
+
+keywords = ["jokes", "fun", "developer", "humor"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
