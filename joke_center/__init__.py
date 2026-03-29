@@ -1,1 +1,1 @@
-from .core import get_joke
+from .core import get_joke, add_joke, list_categories, get_random_joke
