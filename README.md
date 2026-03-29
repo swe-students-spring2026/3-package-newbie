@@ -14,7 +14,6 @@ pip install joke-center-wszms384
 ```python
 import joke_center
 
-print(joke_center.get_joke())
-# "Why did the programmer quit his job? Because he didn't get arrays."
+print(joke_center.get_joke()) 
 
 ```
