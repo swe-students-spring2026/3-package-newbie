@@ -1,89 +1,143 @@
+import pytest
 import joke_center
 
-# Test get_joke function
+
+# ---------- Fixtures ----------
+@pytest.fixture(autouse=True)
+def reset_jokes():
+    # Reset data before each test
+    joke_center.jokes.clear()
+    joke_center.jokes.update({
+        "programming": [
+            "Why do programmers hate nature? Too many bugs.",
+            "Why do Java developers wear glasses? Because they don't C#."
+        ],
+        "dad": [
+            "I only know 25 letters of the alphabet. I don't know y."
+        ]
+    })
+
+
+# ---------- get_joke ----------
 
 def test_get_joke_valid_category():
-    # Should return a string when category exists
+    # Should return a valid string
     joke = joke_center.get_joke("programming")
     assert isinstance(joke, str)
     assert len(joke) > 0
 
 
 def test_get_joke_invalid_category():
-    # Should return fallback message for unknown category
+    # Should return error message
     result = joke_center.get_joke("unknown")
     assert result == "No jokes found for this category!"
 
 
-def test_get_joke_randomness():
-    # Calling multiple times should still return valid strings
-    joke1 = joke_center.get_joke("dad")
-    joke2 = joke_center.get_joke("dad")
-    assert isinstance(joke1, str)
-    assert isinstance(joke2, str)
+def test_get_joke_empty_category():
+    # Category exists but empty
+    joke_center.jokes["empty"] = []
+    result = joke_center.get_joke("empty")
+    assert result == "No jokes found for this category!"
 
-# Test add_joke function
+
+# ---------- add_joke ----------
+
+def test_add_joke_success():
+    # Add joke to existing category
+    result = joke_center.add_joke("programming", "New joke")
+    assert result == "Joke added to programming!"
+    assert "New joke" in joke_center.jokes["programming"]
+
 
 def test_add_joke_new_category():
-    # Adding joke to a new category should create it
-    result = joke_center.add_joke("new_category", "Test joke")
-    assert result == "Joke added to new_category!"
-    assert "new_category" in joke_center.list_categories()
+    # Add joke to new category
+    result = joke_center.add_joke("new_cat", "Hello joke")
+    assert "new_cat" in joke_center.jokes
 
 
-def test_add_joke_empty_string():
-    # Should reject empty joke input
+def test_add_joke_empty():
+    # Reject empty joke
     result = joke_center.add_joke("dad", "")
     assert result == "Joke cannot be empty!"
 
 
-def test_add_joke_effect():
-    # After adding, the joke should be retrievable
-    joke_center.add_joke("programming", "Temporary test joke")
-    jokes = [joke_center.get_joke("programming") for _ in range(10)]
-    assert any("Temporary test joke" in j for j in jokes)
+def test_add_joke_none():
+    # Reject None input
+    result = joke_center.add_joke("dad", None)
+    assert result == "Joke cannot be empty!"
 
 
-# ---------------------------
-# Test list_categories function
-# ---------------------------
+# ---------- delete_joke ----------
 
-def test_list_categories_type():
-    # Should return a list
+def test_delete_joke_success():
+    # Delete existing joke
+    joke = joke_center.jokes["dad"][0]
+    result = joke_center.delete_joke("dad", joke)
+    assert result == "Joke deleted!"
+
+
+def test_delete_joke_not_found():
+    # Joke not in category
+    result = joke_center.delete_joke("dad", "not exist")
+    assert result == "Joke not found!"
+
+
+def test_delete_joke_invalid_category():
+    # Category does not exist
+    result = joke_center.delete_joke("unknown", "joke")
+    assert result == "Category not found!"
+
+
+# ---------- list_categories ----------
+
+def test_list_categories():
+    # Should return list of categories
     categories = joke_center.list_categories()
     assert isinstance(categories, list)
-
-
-def test_list_categories_content():
-    # Should include default categories
-    categories = joke_center.list_categories()
     assert "programming" in categories
-    assert "dad" in categories
 
 
-def test_list_categories_not_empty():
-    # Should not be empty
-    categories = joke_center.list_categories()
-    assert len(categories) > 0
+# ---------- get_random_joke ----------
 
-
-# ---------------------------
-# Test get_random_joke function
-# ---------------------------
-
-def test_get_random_joke_type():
+def test_get_random_joke():
     # Should return a string
     joke = joke_center.get_random_joke()
     assert isinstance(joke, str)
 
 
-def test_get_random_joke_not_empty():
-    # Returned joke should not be empty
-    joke = joke_center.get_random_joke()
-    assert len(joke) > 0
+def test_get_random_joke_empty():
+    # No jokes available
+    joke_center.jokes.clear()
+    result = joke_center.get_random_joke()
+    assert result == "No jokes available!"
 
 
-def test_get_random_joke_multiple_calls():
-    # Multiple calls should still return valid jokes
-    jokes = [joke_center.get_random_joke() for _ in range(5)]
-    assert all(isinstance(j, str) for j in jokes)
+# ---------- get_all_jokes ----------
+
+def test_get_all_jokes():
+    # Should return list
+    jokes = joke_center.get_all_jokes("programming")
+    assert isinstance(jokes, list)
+
+
+# ---------- stats ----------
+
+def test_get_stats():
+    # Should return stats dict
+    stats = joke_center.get_stats()
+    assert "total_categories" in stats
+    assert "total_jokes" in stats
+
+
+# ---------- multiple jokes ----------
+
+def test_get_multiple_jokes():
+    # Should return up to n jokes
+    jokes = joke_center.get_multiple_jokes("programming", 2)
+    assert len(jokes) <= 2
+
+
+def test_get_multiple_jokes_invalid():
+    # Invalid category returns empty list
+    jokes = joke_center.get_multiple_jokes("unknown", 2)
+    assert jokes == []
