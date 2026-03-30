@@ -6,14 +6,56 @@ jokes: Dict[str, List[str]] = {
     "programming": [
         "Why do programmers hate nature? Too many bugs.",
         "Why do Java developers wear glasses? Because they don't C#.",
-        "A SQL query walks into a bar, walks up to two tables and asks: 'Can I join you?'"
+        "A SQL query walks into a bar, walks up to two tables and asks: 'Can I join you?'",
+        "There are only 10 types of people in the world: those who understand binary and those who don't.",
+        "Debugging: Removing the needles from the haystack.",
+        "Why did the developer go broke? Because he used up all his cache.",
+        "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
+        "I would tell you a joke about recursion, but you would have to understand recursion first."
     ],
+
     "dad": [
         "I only know 25 letters of the alphabet. I don't know y.",
-        "Why did the scarecrow win an award? Because he was outstanding in his field!"
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "I used to play piano by ear, now I use my hands.",
+        "Why don't eggs tell jokes? They'd crack each other up.",
+        "I’m reading a book on anti-gravity. It’s impossible to put down.",
+        "Did you hear about the restaurant on the moon? Great food, no atmosphere."
     ],
+
     "dark": [
-        "I told my computer I needed a break, and it said: No problem — it froze."
+        "I told my computer I needed a break, and it said: No problem — it froze.",
+        "Why don’t graveyards ever get overcrowded? People are dying to get in.",
+        "I have a joke about time travel… but you didn’t like it.",
+        "My computer beat me at chess, but it was no match for me at kickboxing."
+    ],
+
+    "tech": [
+        "Why was the computer cold? It forgot to close its Windows.",
+        "Why did the smartphone go to therapy? It lost its connection.",
+        "Why did the server break up with the client? Too many requests.",
+        "Cloud computing is just someone else's computer."
+    ],
+
+    "pun": [
+        "I'm on a seafood diet. I see food and I eat it.",
+        "I used to be a baker, but I couldn’t make enough dough.",
+        "I’m afraid for the calendar. Its days are numbered.",
+        "I once got fired from a canned juice company. Apparently I couldn’t concentrate."
+    ],
+
+    "science": [
+        "Why can't you trust atoms? Because they make up everything.",
+        "Why did the physicist break up with the biologist? There was no chemistry.",
+        "Schrödinger’s cat walks into a bar… and doesn’t.",
+        "Why are chemists excellent for solving problems? They have all the solutions."
+    ],
+
+    "random": [
+        "Why did the bicycle fall over? Because it was two-tired.",
+        "What do you call fake spaghetti? An impasta.",
+        "Why don't skeletons fight each other? They don't have the guts.",
+        "Why did the coffee file a police report? It got mugged."
     ]
 }
 
