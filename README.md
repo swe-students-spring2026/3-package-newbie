@@ -1,6 +1,6 @@
 # 😂 Joke Center
 
-![CI](https://github.com/swe-students-spring2026/3-package-newbie/actions/workflows/python-package.yml/badge.svg)
+[![CI](https://github.com/swe-students-spring2026/3-package-newbie/actions/workflows/python-package.yml/badge.svg)](https://github.com/swe-students-spring2026/3-package-newbie/actions)
 
 A fun and extensible Python package that provides jokes for developers.
 This project demonstrates how to design, test, package, and distribute a Python library using modern software engineering practices.
