@@ -2,6 +2,8 @@
 
 A simple and extensible Python library for managing and retrieving jokes by category.
 
+---
+
 ## 🚀 Features
 
 * Get random jokes by category
@@ -16,8 +18,6 @@ A simple and extensible Python library for managing and retrieving jokes by cate
 
 ## 📦 Installation
 
-Install via pip:
-
 ```bash
 pip install joke-center-wszms384
 ```
@@ -25,8 +25,6 @@ pip install joke-center-wszms384
 ---
 
 ## 🔧 Usage
-
-### Basic Example
 
 ```python
 import joke_center
@@ -37,12 +35,11 @@ print(joke_center.get_joke("programming"))
 # Add a joke
 joke_center.add_joke("programming", "Debugging is like being the detective in a crime movie where you are also the murderer.")
 
-# Get random joke from all categories
+# Get random joke
 print(joke_center.get_random_joke())
 
 # List categories
 print(joke_center.list_categories())
-
 ```
 
 ---
@@ -51,15 +48,19 @@ print(joke_center.list_categories())
 
 ### `get_joke(category="programming")`
 
-Return a random joke from a category.
+Return a random joke from the given category.
+
+* Returns fallback message if category does not exist or is empty
 
 ---
 
 ### `add_joke(category, joke)`
 
-Add a new joke.
+Add a new joke to a category.
 
-* Returns error if joke is empty
+* Automatically creates category if not exists
+* Strips leading/trailing whitespace
+* Returns `"Joke cannot be empty!"` if invalid input
 
 ---
 
@@ -67,17 +68,22 @@ Add a new joke.
 
 Delete a joke from a category.
 
+* Returns `"Category not found!"` if category does not exist
+* Returns `"Joke not found!"` if joke is not in the category
+
 ---
 
 ### `list_categories()`
 
-Return all available categories.
+Return a list of all categories.
 
 ---
 
 ### `get_random_joke()`
 
-Return a random joke from all categories.
+Return a random joke across all categories.
+
+* Returns `"No jokes available!"` if no jokes exist
 
 ---
 
@@ -85,11 +91,17 @@ Return a random joke from all categories.
 
 Return all jokes in a category.
 
+* Returns empty list `[]` if category does not exist
+
 ---
 
 ### `get_multiple_jokes(category, n=1)`
 
-Return multiple random jokes.
+Return up to `n` random jokes from a category.
+
+* If `n` > available jokes → returns all jokes
+* If `n` = 0 → returns `[]`
+* If category not found → returns `[]`
 
 ---
 
@@ -99,8 +111,31 @@ Return statistics:
 
 ```json
 {
-  "total_categories": 3,
-  "total_jokes": 6
+  "total_categories": 7,
+  "total_jokes": 34
 }
-
 ```
+
+---
+
+## ⚠️ Notes
+
+* Data is stored **in-memory only** (not persistent)
+* Not thread-safe for concurrent writes
+* Global state is mutable (functions modify shared data)
+
+---
+
+## 🧪 Testing
+
+Run tests using:
+
+```bash
+python -m pytest
+```
+
+---
+
+## 📄 License
+
+GPL v3 License

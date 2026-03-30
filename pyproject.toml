@@ -5,14 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "joke-center-wszms384"
 
-version = "0.3.2"
+version = "0.4.0"
 
 description = "A fun Python package that provides jokes for developers"
 readme = "README.md"
 authors = [
     { name = "wszms384", email = "2548462107@qq.com " }
 ]
-license = { text = "GPL-3.0-or-later" }
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
 
 dependencies = []
