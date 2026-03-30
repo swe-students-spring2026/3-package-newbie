@@ -255,8 +255,8 @@ PYPI_TOKEN=your_token_here
 
 Latest workflow results:
 
-* [Github Actions Workflow](https://github.com/swe-students-spring2026/3-package-newbie/blob/main/images/action1.png)
-* [Github Test Jobs](https://github.com/swe-students-spring2026/3-package-newbie/blob/main/images/action2.png)
+* ![Github Actions Workflow](https://github.com/swe-students-spring2026/3-package-newbie/blob/main/images/action1.png)
+* ![Github Test Jobs](https://github.com/swe-students-spring2026/3-package-newbie/blob/main/images/action2.png)
 
 ---
 
